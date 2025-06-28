@@ -1,5 +1,9 @@
+import os
+
+# Creating necessary functions
+
 def create_file():
-    your_note= str(input("Your list\n"))
+    your_note= str(input("Write your note: \n"))
     with open('note.txt','w') as newfile:
         newfile.write(your_note)
 
@@ -13,17 +17,29 @@ def update_file():
     with open('note.txt','a') as newfile:
         newfile.write(" "+updated_note)
 
-while 2>1:
-    
-    print("*** TO-DO LIST ***\n")
-    print("MENU: \n")
-    print("1. Create a new List")
-    print("2. Update to existing List")
-    print("3. View List")
-    print("4. Delete a list")
-    print("5. close the program")
 
-    choice= int(input("ENter your choice(1-4): "))
+def delete_file():
+    try:
+        os.remove('note.txt')
+        print("Your file has been deleted")
+    except  FileNotFoundError: 
+        print("Your file does not exists")
+
+
+
+
+while 2>1:
+    # User Dashboard
+    
+    print("\n****************\n*** NOTE APP ***\n****************\n")
+    print("MENU: \n")
+    print("1. Create a new Note")
+    print("2. Add note to existing Note")
+    print("3. View List")
+    print("4. Delete your Note")
+    print("5. EXit\n")
+
+    choice= int(input("ENter your choice(1-5): "))
     if choice== 1:
         create_file()
 
@@ -31,15 +47,16 @@ while 2>1:
         update_file()
 
     elif choice== 3:
-            try:
-                display_file()
-            except FileNotFoundError:
-                print("No list found, Create a list first ")
+        try:
+            display_file()
+        except FileNotFoundError:
+                print("No Note found, Create a New Note first ")
 
     elif choice== 4:
-        print("Work in progress")
+        delete_file()
 
     elif choice== 5:
+        print("Exiting program...")
         break
     else:
         print("Please enter a valid choice")
