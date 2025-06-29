@@ -3,6 +3,7 @@ import os
 # Creating necessary functions
 
 def create_file():
+    c_file = str(input("Enter the file name you want to create: "))
     your_note= str(input("Write your note: \n"))
     with open('note.txt','w') as newfile:
         newfile.write(your_note)
@@ -19,6 +20,8 @@ def update_file():
 
 
 def delete_file():
+    del_file = str(input("Enter your file name: "))
+    if del_file == create_file
     try:
         os.remove('note.txt')
         print("Your file has been deleted")
@@ -35,7 +38,7 @@ while 2>1:
     print("MENU: \n")
     print("1. Create a new Note")
     print("2. Add note to existing Note")
-    print("3. View List")
+    print("3. View Note")
     print("4. Delete your Note")
     print("5. EXit\n")
 
@@ -60,6 +63,7 @@ while 2>1:
         break
     else:
         print("Please enter a valid choice")
+
 
         
 
