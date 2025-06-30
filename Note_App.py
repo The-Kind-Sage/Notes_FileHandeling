@@ -13,7 +13,7 @@ def display_file():
 
 
 def update_file():
-    updated_note= str(input("Your New list\n"))
+    updated_note= str(input("Your New Note\n"))
     with open('note.txt','a') as newfile:
         newfile.write(" "+updated_note)
 
